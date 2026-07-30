@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>Happy Birthday LOKEY</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #FDF2F4;
+      color: #5A2A3A;
+      min-height: 100vh;
+      min-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    header {
+      width: 100%;
+      background: #7A1523;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #FCD8E3;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFF;
+    }
+
+    .page-section {
+      display: none;
+      width: 100%;
+      min-height: calc(100vh - 50px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .page-section.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-btn {
+      margin-top: 35px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px solid #7A1523;
+      color: #7A1523;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .back-btn:active {
+      transform: scale(0.9);
+      background: #7A1523;
+      color: #FFF;
+    }
+
+    #sec-home {
+      background-color: #FCE8EE;
+      position: relative;
+    }
+
+    .title-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #7A1523;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope-wrapper:hover {
+      transform: scale(1.03);
+    }
+
+    .main-envelope {
+      width: 320px;
+      height: 220px;
+      background: #9E1C2C;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 15px 35px rgba(122, 21, 35, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .main-envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-top: 110px solid #B52235;
+      z-index: 1;
+    }
+
+    .wax-seal {
+      width: 60px;
+      height: 60px;
+      background: #5C0D17;
+      border-radius: 50%;
+      border: 3px dashed #B52235;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E8C384;
+      font-size: 1.6rem;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .decor-balloons {
+      position: absolute;
+      right: 8%;
+      top: 30%;
+      font-size: 3.5rem;
+      animation: floatSway 3s ease-in-out infinite alternate;
+    }
+
+    .decor-hearts {
+      position: absolute;
+      left: 8%;
+      top: 35%;
+      font-size: 3rem;
+      animation: floatSway 2.5s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatSway {
+      0% { transform: translateY(0) rotate(-5deg); }
+      100% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    #sec-surprise {
+      background-color: #6B0505;
+      color: #FFF;
+    }
+
+    .surprise-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #FFF;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .cards-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+    }
+
+    .surprise-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      width: 220px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .surprise-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    .card-icon {
+      font-size: 4rem;
+    }
+
+    .card-label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    #sec-message {
+      background: repeating-linear-gradient(
+        45deg,
+        #A8A4CE,
+        #A8A4CE 15px,
+        #C2BEE0 15px,
+        #C2BEE0 30px
+      );
+    }
+
+    .interactive-envelope-container {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      background: #7A1523;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .letter-paper {
+      width: 280px;
+      height: 180px;
+      background: #FFF;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+      position: absolute;
+      top: 10px;
+      z-index: 2;
+    }
+
+    .letter-paper h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #7A1523;
+      margin-bottom: 8px;
+    }
+
+    .letter-paper p {
+      font-size: 0.75rem;
+      color: #444;
+      line-height: 1.4;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+
+    .click-hint {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #7A1523;
+    }
+
+    .full-letter-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        #FCE8EE,
+        #FCE8EE 20px,
+        #FFF 20px,
+        #FFF 40px
+      );
+      z-index: 200;
+      padding: 40px 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .full-letter-modal.active {
+      display: flex;
+    }
+
+    .letter-box {
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 2px solid #F3B3C4;
+      border-radius: 20px;
+      padding: 35px 25px;
+      box-shadow: 0 15px 35px rgba(122, 21, 35, 0.15);
+      position: relative;
+      text-align: center;
+    }
+
+    .ribbon-corner {
+      position: absolute;
+      font-size: 2rem;
+    }
+    .rc-tl { top: -15px; left: -15px; }
+    .rc-br { bottom: -15px; right: -15px; }
+
+    .letter-box h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #7A1523;
+      margin-bottom: 15px;
+    }
+
+    .letter-box p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #5A2A3A;
+    }
+
+    #sec-flowers {
+      background-color: #6B0505;
+      color: #FFF;
+    }
+
+    .flowers-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    .bouquet-img {
+      font-size: 8rem;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+      animation: floatSway 3s infinite alternate ease-in-out;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      max-width: 500px;
+    }
+
+    .note-card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 0.9rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #sec-cake {
+      background: repeating-linear-gradient(
+        45deg,
+        #B5B0D8,
+        #B5B0D8 20px,
+        #C9C5E6 20px,
+        #C9C5E6 40px
+      );
+    }
+
+    .cake-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+
+    .cake-center {
+      text-align: center;
+    }
+
+    .cake-icon {
+      font-size: 7rem;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    }
+
+    .vinyl-box {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .vinyl-record {
+      width: 130px;
+      height: 130px;
+      background: #111;
+      border-radius: 50%;
+      border: 12px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      position: relative;
+      animation: spinVinyl 5s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .vinyl-center {
+      width: 45px;
+      height: 45px;
+      background: #E1729B;
+      border-radius: 50%;
+      border: 3px solid #FFF;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .photo-frame {
+      width: 140px;
+      background: #FFF;
+      padding: 10px 10px 25px 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      transform: rotate(-5deg);
+      text-align: center;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 120px;
+      background: #F8D7E3;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#" onclick="showSection('sec-home')" class="active">Happy Birthday</a>
+      <a href="#" onclick="showSection('sec-surprise')">Your Surprise</a>
+      <a href="#" onclick="showSection('sec-message')">Message</a>
+      <a href="#" onclick="showSection('sec-flowers')">Flowers</a>
+      <a href="#" onclick="showSection('sec-cake')">Cake</a>
+    </nav>
+  </header>
+
+  <section id="sec-home" class="page-section active">
+    <span class="decor-hearts"></span>
+    <h1 class="title-script">Happy Birthday</h1>
+
+    <div class="envelope-wrapper" onclick="showSection('sec-surprise')">
+      <div class="main-envelope">
+        <div class="wax-seal">💕</div>
+      </div>
+    </div>
+
+    <span class="decor-balloons"></span>
+  </section>
+
+  <section id="sec-surprise" class="page-section">
+    <h2 class="surprise-title">Choose Your Gift</h2>
+
+    <div class="cards-grid">
+      <div class="surprise-card" onclick="showSection('sec-message')">
+        <div class="card-icon"><img src="msg.png" alt="Message" style="width: 70px; height: 70px; object-fit: contain;"></div>
+        <div class="card-label">MESSAGE</div>
+      </div>
+
+      <div class="surprise-card" onclick="showSection('sec-flowers')">
+        <div class="card-icon"><img src="Flow.png" alt="Flowers" style="width: 70px; height: 70px; object-fit: contain;"></div>
+        <div class="card-label">FLOWERS</div>
+      </div>
+
+      <div class="surprise-card" onclick="showSection('sec-cake')">
+        <div class="card-icon"><img src="ck.png" alt="Cake" style="width: 70px; height: 70px; object-fit: contain;"></div>
+        <div class="card-label">CAKE</div>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="showSection('sec-home')">←</button>
+  </section>
+
+  <section id="sec-message" class="page-section">
+    <div class="interactive-envelope-container" onclick="openFullLetter()">
+      <div class="letter-paper">
+        <h3>My Malak,</h3>
+        <p>Happy birthday</p>
+        <div class="click-hint">CLICK HERE</div>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="showSection('sec-surprise')">←</button>
+  </section>
+
+  <div id="full-letter-modal" class="full-letter-modal">
+    <div class="letter-box">
+      <span class="ribbon-corner rc-tl">💕</span>
+      <span class="ribbon-corner rc-br">💕</span>
+
+      <h2>My Malak</h2>
+      <p>
+      Hi Sweetheart,<br><br>كل سنة وإنتِ طيبة يا أجمل إنسانة 💗💗
+      <br>
+	بجد أتمنى السنة دي تكون مختلفة عن أي سنة فاتت، مليانة سعادة وراحة ونجاح، وكل أمنية بتتمنيها تلاقيها بتتحقق قدامك. تستحقي كل حاجة حلوة في الدنيا، لأن وجودك بيخلي أي مكان ألطف وأحلى.
+	<br>
+	أتمنى أشوف ضحكتك دايمًا، وما يجيش يوم تكوني فيه زعلانة، وربنا يرزقك راحة البال ويوفقك في كل خطوة جاية. خليكِ دايمًا زي ما إنتِ، بعفويتك وخفة دمك وقلبك الحلو.
+	<br>
+	شكراً على كل المواقف الحلوة والذكريات اللي بينا، وإن شاء الله نفضل أصحاب لسنين طويلة.💕
+	<br>
+	عيد ميلاد سعيد يا ملوكةةة، وعقبال 100 سنة كلها صحة وفرحة وضحك، وكل سنة وإنتِ منورة حياة كل اللي حواليكي.💕
+	<br>
+	𝐿𝑂𝐾𝑇𝑌💞
+	<strong><br>Happy Birthday Sweetheart</strong>
+      </p>
+    </div>
+
+    <button class="back-btn" onclick="closeFullLetter()">←</button>
+  </div>
+
+  <section id="sec-flowers" class="page-section">
+    <div class="flowers-wrapper">
+      <div class="bouquet-img"><img src="flowers.png" alt="cute kiddo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem;">With my full love</h3>
+
+      <div class="notes-grid">
+        <div class="note-card">most beautiful person</div>
+        <div class="note-card">For you</div>
+        <div class="note-card">My best human ever</div>
+        <div class="note-card">Have a nice life</div>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="showSection('sec-surprise')">←</button>
+  </section>
+
+  <section id="sec-cake" class="page-section">
+    <h1 class="title-script" style="margin-bottom: 20px;">Happy Birthday</h1>
+
+    <div class="cake-layout">
+      <div class="photo-frame">
+        <div class="photo-placeholder"><img src="rovy.png" alt="cute kiddo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
+        <p style="font-size: 0.8rem; margin-top: 8px; font-weight: bold;">Hope you like it</p>
+      </div>
+
+      <div class="cake-center">
+        <div class="cake-icon"><img src="cake.png" alt="Birthday Cake" style="width: 160px; max-width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); pointer-events: none;"></div>
+      </div>
+
+      <div class="vinyl-box" onclick="toggleMusic()">
+        <div class="vinyl-record" id="vinyl">
+          <div class="vinyl-center"></div>
+        </div>
+        <p style="font-size: 0.8rem; font-weight: bold; margin-top: 8px;">CLICK HERE</p>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="showSection('sec-surprise')">←</button>
+  </section>
+
+  <audio id="mySong" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.page-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+    }
+
+    function openFullLetter() {
+      document.getElementById('full-letter-modal').classList.add('active');
+    }
+
+    function closeFullLetter() {
+      document.getElementById('full-letter-modal').classList.remove('active');
+    }
+
+    const song = document.getElementById('mySong');
+    const vinyl = document.getElementById('vinyl');
+
+    function toggleMusic() {
+      if (song.paused) {
+        song.play();
+        vinyl.style.animationPlayState = 'running';
+      } else {
+        song.pause();
+        vinyl.style.animationPlayState = 'paused';
+      }
+    }
+  </script>
+</body>
+		</html>
+	
